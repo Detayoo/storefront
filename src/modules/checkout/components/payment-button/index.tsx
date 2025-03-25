@@ -37,7 +37,11 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
       )
     case isManual(paymentSession?.provider_id):
       return (
-        <ManualTestPaymentButton notReady={notReady} data-testid={dataTestId} />
+        <ManualTestPaymentButton
+          cart={cart}
+          notReady={notReady}
+          data-testid={dataTestId}
+        />
       )
     default:
       return <Button disabled>Select a payment method</Button>
@@ -151,7 +155,14 @@ const StripePaymentButton = ({
   )
 }
 
-const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
+const ManualTestPaymentButton = ({
+  notReady,
+  cart,
+}: {
+  notReady: boolean
+  cart: any
+}) => {
+  // user country code --> cart?.shipping_address?.country_code
   const [submitting, setSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 

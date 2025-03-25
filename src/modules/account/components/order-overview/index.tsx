@@ -5,8 +5,14 @@ import { Button } from "@medusajs/ui"
 import OrderCard from "../order-card"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
+import { useEffect } from "react"
+// import { revalidatePath } from "next/cache"
 
 const OrderOverview = ({ orders }: { orders: HttpTypes.StoreOrder[] }) => {
+  // useEffect(() => {
+  //   revalidatePath(`/gh/account/orders`)
+  // }, [])
+
   if (orders?.length) {
     return (
       <div className="flex flex-col gap-y-8 w-full">

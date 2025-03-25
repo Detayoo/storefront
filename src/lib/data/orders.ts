@@ -40,6 +40,7 @@ export const listOrders = async (
 
   const next = {
     ...(await getCacheOptions("orders")),
+    revalidate: 0,
   }
 
   return sdk.client
@@ -54,7 +55,8 @@ export const listOrders = async (
       },
       headers,
       next,
-      cache: "force-cache",
+      // cache: "force-cache",
+      cache: "no-store",
     })
     .then(({ orders }) => orders)
     .catch((err) => medusaError(err))
