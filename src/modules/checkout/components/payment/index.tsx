@@ -10,7 +10,6 @@ import PaymentContainer, {
   StripeCardContainer,
 } from "@modules/checkout/components/payment-container"
 import Divider from "@modules/common/components/divider"
-import { revalidatePath } from "next/cache"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
 
@@ -96,7 +95,6 @@ const Payment = ({
           }
         )
       }
-      // revalidatePath(`/gh/account/orders`)
     } catch (err: any) {
       setError(err.message)
     } finally {
