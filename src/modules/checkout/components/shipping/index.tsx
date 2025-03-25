@@ -114,6 +114,8 @@ const Shipping: React.FC<ShippingProps> = ({
     router.push(pathname + "?step=payment", { scroll: false })
   }
 
+  console.log('cart ---> ', cart)
+
   const handleSetShippingMethod = async (
     id: string,
     variant: "shipping" | "pickup"
