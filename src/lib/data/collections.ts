@@ -36,7 +36,7 @@ export const listCollections = async (
       {
         query: queryParams,
         next,
-        cache: "force-cache",
+        cache: "no-store",
       }
     )
     .then(({ collections }) => ({ collections, count: collections.length }))
