@@ -85,7 +85,7 @@ export default function ProductActions({
     // If there is inventory available, we can add to cart
     if (
       selectedVariant?.manage_inventory &&
-      (selectedVariant?.inventory_quantity || 0) > 0
+      (selectedVariant?.inventory_quantity ?? 0) > 0
     ) {
       return true
     }
