@@ -8,6 +8,7 @@ export default async function FeaturedProducts({
   collections: HttpTypes.StoreCollection[]
   region: HttpTypes.StoreRegion
 }) {
+  if (collections?.length < 1) return null
   return collections.map((collection) => (
     <li key={collection.id}>
       <ProductRail collection={collection} region={region} />
